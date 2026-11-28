@@ -1,18 +1,25 @@
 import { Button, VerticalBox } from "std-widgets.slint";
 
-export component AppWindow inherits Window {
-    in-out property <int> counter: 42;
-    callback request-increase-value();
-    VerticalBox {
-        Text {
-            text: "Counter: \{root.counter}";
-        }
 
-        Button {
-            text: "Increase value";
-            clicked => {
-                root.request-increase-value();
-            }
+export struct ThumbNail { id: int, image: image, path: string }
+
+export component AppWindow inherits Window {
+    no-frame: true;
+    background: transparent;
+    in property <[ThumbNail]> thumbnails;
+    in property <length> item-width: 520px;
+    in property <length> item-height: 290px;
+    in property <ThumbNail> active-thumbnail;
+
+    Flickable {
+        content-width: thumbnails.length * item-width;
+        for thumbnails[i] in thumbnails: Rectangle {
+            width: item-width;
+            height: item-height;
+            x: i * item-width;
+            background: #ffffff;
+            border-color: #000000;
+            border-width: 2px;
         }
     }
 }

@@ -1,0 +1,3 @@
+WALLPAPER_DIR='E:\\user\\Pictures\\wallpaper\\CozyPixels-main\\Catppuccin\\Fantasy & Mythology'
+THUMB_WIDTH=520
+export ANIMATE=yes   # inline comment
